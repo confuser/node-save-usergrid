@@ -1,6 +1,6 @@
 # save-usergrid
 
-[![Build Status](https://travis-ci.org/confuser/save-usergrid.png?branch=master)](https://travis-ci.org/confuser/save-usergrid)
+[![Build Status](https://travis-ci.org/confuser/node-save-usergrid.png?branch=master)](https://travis-ci.org/confuser/node-save-usergrid)
 
 [Usergrid](https://usergrid.apache.org) persistance engine for [save](https://npmjs.org/package/save)
 
