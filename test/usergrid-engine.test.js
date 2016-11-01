@@ -49,7 +49,7 @@ describe('#init', function () {
       .reply(200, '{asd')
 
     save.create(fixtures[0], function (error) {
-      assert.equal(error.message, 'Unexpected token a')
+      assert.equal(error.message.indexOf('Unexpected token a'), 0)
 
       done()
     })
