@@ -196,6 +196,7 @@ module.exports = function (collection, engineOptions) {
         opts.url += encodeURIComponent(query.ql)
 
         if (query.limit) opts.url += '&limit=' + query.limit
+        if (query.cursor) opts.url += '&cursor=' + query.cursor
       }
 
       request(opts, function (error, res) {
