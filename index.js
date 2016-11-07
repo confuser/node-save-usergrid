@@ -204,7 +204,7 @@ module.exports = function (collection, engineOptions) {
 
         self.emit('received', res.body.entities)
 
-        callback(null, res.body.entities)
+        callback(null, res.body.entities, res.body)
       })
     })
   }

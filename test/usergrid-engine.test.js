@@ -306,6 +306,20 @@ describe('#find', function () {
       done()
     })
   })
+
+  it('should return the whole body', function (done) {
+    nock('https://localhost')
+      .get('/org/app/test?ql=SELECT%20*%20WHERE%20foo%20%3D%20bar')
+      .reply(200, { entities: fixtures, cursor: 'asd' })
+
+    save.find('SELECT * WHERE foo = bar', function (error, objects, body) {
+      if (error) return done(error)
+
+      assert.equal(body.cursor, 'asd')
+
+      done()
+    })
+  })
 })
 
 describe('#findOne', function () {
