@@ -75,6 +75,7 @@ module.exports = function (collection, engineOptions) {
 
       request(opts, function (error, res) {
         if (error) return callback(error)
+        if (res.statusCode === 404) return callback(null, null)
         if (res.statusCode !== 200) return callback(new Error('Failed to retrieve ' + id))
 
         self.emit('received', res.body.entities[0])

@@ -138,6 +138,19 @@ describe('#read', function () {
       done()
     })
   })
+
+  it('should not error if not found', function (done) {
+    nock('https://localhost')
+      .get('/org/app/test/12345678')
+      .reply(404)
+
+    save.read('12345678', function (error, entity) {
+      assert.equal(error, null)
+      assert.equal(entity, null)
+
+      done()
+    })
+  })
 })
 
 describe('#update', function () {
