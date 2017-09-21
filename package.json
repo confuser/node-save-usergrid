@@ -36,7 +36,7 @@
     "event-stream": "^3.3.4",
     "lodash.assign": "^4.2.0",
     "memoizee": "^0.4.1",
-    "request": "^2.76.0"
+    "request": "2.81.0"
   },
   "devDependencies": {
     "@confuser/eslint-config": "^2.0.0",
