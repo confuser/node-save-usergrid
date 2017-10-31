@@ -395,10 +395,11 @@ describe('#delete', function () {
       .delete('/org/app/test/2')
       .reply(200, { entities: [ fixtures[0] ] })
 
-    save.delete(2, function (error, object) {
+    save.delete(2, function (error, object, res) {
       if (error) return done(error)
 
       assert.deepEqual(object, fixtures[0])
+      assert.equal(typeof res, 'object')
 
       done()
     })

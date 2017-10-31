@@ -159,9 +159,9 @@ module.exports = function (collection, engineOptions) {
         if (error) return callback(error)
         if (res.statusCode !== 200) return callback(new Error('Failed to delete ' + id))
 
-        self.emit('afterDelete', id, res.body.entities[0])
+        self.emit('afterDelete', id, res.body.entities[0], res)
 
-        callback(null, res.body.entities[0])
+        callback(null, res.body.entities[0], res)
       })
     })
   }
