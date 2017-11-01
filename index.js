@@ -115,7 +115,7 @@ module.exports = function (collection, engineOptions) {
 
       request(opts, function (error, res) {
         if (error) return callback(error)
-        if (res.statusCode !== 200) return callback(new Error('Failed to update ' + id))
+        if (res.statusCode !== 200) return callback(new Error('Failed to update ' + id), null, res)
 
         self.emit('afterUpdate', res.body.entities[0])
         self.emit('received', res.body.entities[0])
