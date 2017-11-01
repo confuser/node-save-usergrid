@@ -157,7 +157,7 @@ module.exports = function (collection, engineOptions) {
 
       request(opts, function (error, res) {
         if (error) return callback(error)
-        if (res.statusCode !== 200) return callback(new Error('Failed to delete ' + id))
+        if (res.statusCode !== 200) return callback(new Error('Failed to delete ' + id), null, res)
 
         self.emit('afterDelete', id, res.body.entities[0], res)
 
