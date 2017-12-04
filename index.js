@@ -202,7 +202,7 @@ module.exports = function (collection, engineOptions) {
 
       request(opts, function (error, res) {
         if (error) return callback(error)
-        if (res.statusCode !== 200) return callback(new Error('Query failed ' + opts.url), null, res)
+        if (res.statusCode !== 200) return callback(new Error('Query failed ' + opts.url), null, res.body, res)
 
         self.emit('received', res.body.entities)
 
