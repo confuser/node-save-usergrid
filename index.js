@@ -29,7 +29,7 @@ module.exports = function (collection, engineOptions) {
 
       request(opts, function (error, res) {
         if (error) return callback(error)
-        if (res.statusCode !== 200) return callback(new Error('Failed to create'))
+        if (res.statusCode !== 200) return callback(new Error('Failed to create'), null, res)
 
         self.emit('afterCreate', res.body.entities[0])
         self.emit('received', res.body.entities[0])
@@ -76,7 +76,7 @@ module.exports = function (collection, engineOptions) {
       request(opts, function (error, res) {
         if (error) return callback(error)
         if (res.statusCode === 404) return callback(null, null)
-        if (res.statusCode !== 200) return callback(new Error('Failed to retrieve ' + id))
+        if (res.statusCode !== 200) return callback(new Error('Failed to retrieve ' + id), null, res)
 
         self.emit('received', res.body.entities[0])
 
@@ -202,7 +202,7 @@ module.exports = function (collection, engineOptions) {
 
       request(opts, function (error, res) {
         if (error) return callback(error)
-        if (res.statusCode !== 200) return callback(new Error('Query failed ' + opts.url))
+        if (res.statusCode !== 200) return callback(new Error('Query failed ' + opts.url), null, res)
 
         self.emit('received', res.body.entities)
 
@@ -252,7 +252,7 @@ module.exports = function (collection, engineOptions) {
 
       request(opts, function (error, res) {
         if (error) return callback(error)
-        if (res.statusCode !== 200) return callback(new Error('Count failed'))
+        if (res.statusCode !== 200) return callback(new Error('Count failed'), null, res)
 
         var ugCount = res.body.entities[0].metadata.collections[collection].count
 
